@@ -1,0 +1,68 @@
+
+:root {
+    /* Base font size */
+    font-size: 10px;
+  }
+
+  body {
+    font-family: 'Press Start 2P', cursive;
+    margin: 0;
+    background: url('../images/background_before.jpeg') no-repeat center center fixed;
+    background-size: cover; /* 背景画像をカバーするように表示 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .screen {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Press Start 2P', cursive; /* ボタンにもフォントを適用 */
+    position: absolute;
+    bottom: 20px;
+  }
+  
+  #runningGif {
+    width: 200px;
+    height: auto;
+  }
+  
+  .resultContainer {
+    background: black; /* ランニング結果画面の背景色を黒に設定 */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%; /* 背景の幅を固定 */
+    max-width: 400px; /* 最大幅を設定 */
+    text-align: left; /* テキストを左揃えに */
+    margin-bottom: 20px; /* 下に余白を追加 */
+  }
+  
+  .resultText {
+    color: turquoise; /* フォントの色を黄色に設定 */
+    font-size: 20px;
+    margin: 10px 0; /* 段落の間に余白を追加 */
+  }
+  
+  .chargeContainer {
+    text-align: center;
+  }
+  
+  #batteryImage {
+    width: 100px;
+    height: auto;
+    transition: opacity 1s ease-in-out; /* 1秒かけてフェードイン・フェードアウト */
+  }
+  

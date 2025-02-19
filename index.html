@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYAN CAT</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <audio id="bgm" src="sounds/bgm.mp3" loop></audio>
+    <div id="homeScreen" class="screen">
+        <button id="startButton">START</button>
+    </div>
+    <div id="runningScreen" class="screen" style="display: none;">
+        <img id="runningGif" src="images/running.gif" alt="Running">
+        <button id="endButton">END</button>
+    </div>
+    <div id="resultScreen" class="screen" style="display: none;">
+        <div class="resultContainer">
+            <p class="resultText">distance: <span id="distance">0</span> km</p>
+            <p class="resultText">time: <span id="time">0</span> sec</p>
+        </div>
+        <button id="chargeButton">CHARGE</button>
+    </div>
+    <div id="chargeScreen" class="screen" style="display: none;">
+        <div class="chargeContainer">
+            <img id="batteryImage" src="images/battery_before.png" alt="Battery">
+        </div>
+        <button id="homeButton">HOME</button>
+    </div>
+    <script src="scripts/script.js"></script>
+</body>
+</html>
