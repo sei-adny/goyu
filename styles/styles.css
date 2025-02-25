@@ -7,7 +7,7 @@
   body {
     font-family: 'Press Start 2P', cursive;
     margin: 0;
-    background: url('../images/background_before.jpeg') no-repeat center center fixed;
+    background: url('../images/background_before.png') no-repeat center center fixed;
     background-size: cover; /* 背景画像をカバーするように表示 */
     display: flex;
     justify-content: center;

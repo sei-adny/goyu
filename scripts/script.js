@@ -92,7 +92,7 @@ function showChargeScreen() {
 function goHome() {
     chargeScreen.style.display = 'none';
     homeScreen.style.display = 'flex';
-    document.body.style.backgroundImage = "url('images/background_after.jpeg')"; // 背景画像を変更
+    document.body.style.backgroundImage = "url('images/background_after.png')"; // 背景画像を変更
 }
 
 function updatePosition(position) {
