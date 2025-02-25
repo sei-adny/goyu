@@ -66,3 +66,43 @@
     transition: opacity 1s ease-in-out; /* 1秒かけてフェードイン・フェードアウト */
   }
   
+  #runningScreen {
+    background: linear-gradient(to bottom, #000020, #000040); /* 宇宙っぽい黒青のグラデーション */
+    overflow: hidden; /* 画面外の星を隠す */
+    position: relative;
+}
+
+/* 星の共通スタイル */
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    pointer-events: none; /* 星のクリックイベントを無効化 */
+}
+
+/* 遠い星（小さくて動きが遅い） */
+.star.far {
+    width: 2px;
+    height: 2px;
+    animation: starMove 10s linear infinite;
+    opacity: 0.5;
+}
+
+/* 近い星（大きくて動きが速い） */
+.star.near {
+    width: 4px;
+    height: 4px;
+    animation: starMove 5s linear infinite;
+    opacity: 1;
+}
+
+/* 星を右から左へ動かす */
+@keyframes starMove {
+    from {
+        transform: translateX(100vw);
+    }
+    to {
+        transform: translateX(-10vw);
+    }
+}

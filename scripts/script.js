@@ -41,13 +41,17 @@ homeButton.addEventListener('click', () => {
 });
 
 function startRun() {
-    startTime = new Date(); // 開始時間を記録
-    distance = 0; // 距離をリセット
+    startTime = new Date();
+    distance = 0;
     distanceElement.textContent = distance;
     timeElement.textContent = 0;
 
     homeScreen.style.display = 'none';
     runningScreen.style.display = 'flex';
+
+    /* ⭐ 星を追加する処理 */
+    createStars(30, 'far'); // 遠い星を30個
+    createStars(15, 'near'); // 近い星を15個
 
     if (navigator.geolocation) {
         watchId = navigator.geolocation.watchPosition(updatePosition, showError, {
@@ -61,6 +65,7 @@ function startRun() {
 
     timerInterval = setInterval(updateTime, 1000);
 }
+
 
 function endRun() {
     endTime = new Date(); // 終了時間を記録
@@ -150,4 +155,19 @@ function playCountUpSound() {
 function playChargeSound() {
     chargeSound.currentTime = 0;
     chargeSound.play();
+}
+
+/* ⭐ 星をランダムに生成する関数 */
+function createStars(num, className) {
+    for (let i = 0; i < num; i++) {
+        let star = document.createElement('div');
+        star.classList.add('star', className);
+        
+        // ランダムな位置を設定
+        star.style.top = Math.random() * 100 + "vh";
+        star.style.left = Math.random() * 100 + "vw";
+
+        // 星を追加
+        runningScreen.appendChild(star);
+    }
 }
