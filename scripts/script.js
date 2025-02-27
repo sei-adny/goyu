@@ -66,19 +66,34 @@ function startRun() {
     timerInterval = setInterval(updateTime, 1000);
 }
 
-
 function endRun() {
-    endTime = new Date(); // 終了時間を記録
-    navigator.geolocation.clearWatch(watchId); // 位置情報の取得を停止
-    clearInterval(timerInterval); // タイマーを停止
+    endTime = new Date();
+    navigator.geolocation.clearWatch(watchId);
+    clearInterval(timerInterval);
 
     runningScreen.style.display = 'none';
     resultScreen.style.display = 'flex';
 
-    const timeElapsed = Math.floor((endTime - startTime) / 1000); // 経過時間を計算
-    playCountUpSound(); // カウントアップ開始時に音を鳴らす
-    animateCountUp(distanceElement, distance, 0.01, 100); // 距離をカウントアップ
-    animateCountUp(timeElement, timeElapsed, 1, 100); // 時間をカウントアップ
+    const timeElapsed = Math.floor((endTime - startTime) / 1000);
+    
+    const formattedTime = formatTime(timeElapsed); // hh:mm:ss 形式に変換
+    const formattedDist = formatDistance(distance); // 00.00 km 形式に変換
+    
+    playCountUpSound();
+    animateCountUp(timeElement, timeElapsed, 1, 100, formatTime);
+    animateCountUp(distanceElement, distance, 0.01, 100, formatDistance);
+
+    // ⭐ ホーム画面と結果画面のスコアを更新
+    document.getElementById('homeTime').textContent = formattedTime;
+    document.getElementById('homeDist').textContent = formattedDist;
+
+    // ❌ 修正前（要素が存在しない可能性あり）
+    // document.getElementById('resultTime').textContent = formattedTime;
+    // document.getElementById('resultDist').textContent = formattedDist;
+
+    // ✅ 修正後：結果画面に対応する要素を作成・更新
+    document.getElementById('time').textContent = formattedTime;
+    document.getElementById('distance').textContent = formattedDist;
 }
 
 function showChargeScreen() {
@@ -130,7 +145,7 @@ function updateTime() {
     timeElement.textContent = timeElapsed;
 }
 
-function animateCountUp(element, target, step, intervalTime) {
+function animateCountUp(element, target, step, intervalTime, formatFunc = (v) => v) {
     let current = 0;
     const interval = setInterval(() => {
         current += step;
@@ -138,9 +153,10 @@ function animateCountUp(element, target, step, intervalTime) {
             current = target;
             clearInterval(interval);
         }
-        element.textContent = current.toFixed(2);
+        element.textContent = formatFunc(current);
     }, intervalTime);
 }
+
 
 function playClickSound() {
     clickSound.currentTime = 0;
@@ -170,4 +186,16 @@ function createStars(num, className) {
         // 星を追加
         runningScreen.appendChild(star);
     }
+}
+
+function formatTime(seconds) {
+    let h = Math.floor(seconds / 3600);
+    let m = Math.floor((seconds % 3600) / 60);
+    let s = seconds % 60;
+    
+    return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+}
+
+function formatDistance(km) {
+    return km.toFixed(2);
 }

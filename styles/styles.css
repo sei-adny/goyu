@@ -1,21 +1,19 @@
-
 :root {
-    /* Base font size */
     font-size: 10px;
-  }
+}
 
-  body {
+body {
     font-family: 'Press Start 2P', cursive;
     margin: 0;
     background: url('../images/background_before.png') no-repeat center center fixed;
-    background-size: cover; /* 背景画像をカバーするように表示 */
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-  }
-  
-  .screen {
+}
+
+.screen {
     text-align: center;
     width: 100%;
     height: 100%;
@@ -23,65 +21,79 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  
-  button {
+}
+
+button {
     margin: 10px;
     padding: 10px 20px;
+    color: white;
+    background: black;
+    border: 2px solid white;
     font-size: 16px;
-    font-family: 'Press Start 2P', cursive; /* ボタンにもフォントを適用 */
+    font-family: 'Press Start 2P', cursive;
+    border-radius: 8px;
     position: absolute;
     bottom: 20px;
-  }
-  
-  #runningGif {
+    transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+    color: gray;
+    border-color: gray;
+}
+
+button:active {
+    color: darkgray;
+    border-color: darkgray;
+    transform: scale(0.95);
+}
+
+#runningGif {
     width: 200px;
     height: auto;
-  }
-  
-  .resultContainer {
-    background: black; /* ランニング結果画面の背景色を黒に設定 */
+}
+
+.resultContainer {
+    background: black;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 80%; /* 背景の幅を固定 */
-    max-width: 400px; /* 最大幅を設定 */
-    text-align: left; /* テキストを左揃えに */
-    margin-bottom: 20px; /* 下に余白を追加 */
-  }
-  
-  .resultText {
-    color: turquoise; /* フォントの色を黄色に設定 */
+    width: 80%;
+    max-width: 400px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.resultText {
+    color: turquoise;
     font-size: 20px;
-    margin: 10px 0; /* 段落の間に余白を追加 */
-  }
-  
-  .chargeContainer {
+    margin: 10px 0;
+}
+
+.chargeContainer {
     text-align: center;
-  }
-  
-  #batteryImage {
+}
+
+#batteryImage {
     width: 100px;
     height: auto;
-    transition: opacity 1s ease-in-out; /* 1秒かけてフェードイン・フェードアウト */
-  }
-  
-  #runningScreen {
-    background: linear-gradient(to bottom, #000020, #000040); /* 宇宙っぽい黒青のグラデーション */
-    overflow: hidden; /* 画面外の星を隠す */
+    transition: opacity 1s ease-in-out;
+}
+
+#runningScreen {
+    background: linear-gradient(to bottom, #000020, #000040);
+    overflow: hidden;
     position: relative;
 }
 
-/* 星の共通スタイル */
 .star {
     position: absolute;
     background: white;
     border-radius: 50%;
     opacity: 0.8;
-    pointer-events: none; /* 星のクリックイベントを無効化 */
+    pointer-events: none;
 }
 
-/* 遠い星（小さくて動きが遅い） */
 .star.far {
     width: 2px;
     height: 2px;
@@ -89,7 +101,6 @@
     opacity: 0.5;
 }
 
-/* 近い星（大きくて動きが速い） */
 .star.near {
     width: 4px;
     height: 4px;
@@ -97,7 +108,6 @@
     opacity: 1;
 }
 
-/* 星を右から左へ動かす */
 @keyframes starMove {
     from {
         transform: translateX(100vw);
@@ -105,4 +115,30 @@
     to {
         transform: translateX(-10vw);
     }
+}
+
+#scoreBoard {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: black;
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 8px;
+    width: 180px;
+    text-align: center;
+}
+
+.scoreTitle {
+    font-size: 14px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.scoreText {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: white;
+    margin: 10px 0;
 }
