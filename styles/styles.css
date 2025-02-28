@@ -54,20 +54,21 @@ button:active {
 }
 
 .resultContainer {
+    position: absolute;
     background: black;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    max-width: 400px;
-    text-align: left;
-    margin-bottom: 20px;
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 8px;
+    width: 180px;
+    text-align: center;
 }
 
 .resultText {
-    color: turquoise;
-    font-size: 20px;
-    margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: white;
+  margin: 10px 0;
 }
 
 .chargeContainer {
