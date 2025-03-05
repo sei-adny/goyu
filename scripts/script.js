@@ -101,12 +101,12 @@ function showChargeScreen() {
     chargeScreen.style.display = 'flex';
 
     // バッテリーのイラストを変更
-    batteryImage.src = 'images/battery_before.png';
+    batteryImage.src = 'images/battery.gif';
     batteryImage.style.opacity = 1; // 初期状態で表示
 
     setTimeout(() => {
-        batteryImage.src = 'images/battery_after.png';
-    }, 1000); // 1秒後にバッテリーのイラストを変更
+        batteryImage.src = 'images/battery_full.gif';
+    }, 4500); // 4秒後にバッテリーのイラストを変更
 }
 
 function goHome() {
