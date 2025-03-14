@@ -42,9 +42,18 @@ button:hover {
     border-color: gray;
 }
 
+/* PCのクリック時 */
 button:active {
     color: darkgray;
     border-color: darkgray;
+    transform: scale(0.95);
+}
+
+/* スマホのタッチ時のスタイル（JSで追加するクラス） */
+button.touch-active {
+    background: gray;
+    color: white;
+    border-color: white;
     transform: scale(0.95);
 }
 

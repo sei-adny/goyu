@@ -199,3 +199,27 @@ function formatTime(seconds) {
 function formatDistance(km) {
     return km.toFixed(2);
 }
+
+document.querySelectorAll("button").forEach(button => {
+    button.addEventListener("touchstart", () => {
+        button.classList.add("touch-active");
+    });
+
+    button.addEventListener("touchend", () => {
+        button.classList.remove("touch-active");
+    });
+
+    // PCのクリックにも対応
+    button.addEventListener("mousedown", () => {
+        button.classList.add("touch-active");
+    });
+
+    button.addEventListener("mouseup", () => {
+        button.classList.remove("touch-active");
+    });
+
+    // マウスが外れたときも解除（スマホのスワイプ対策）
+    button.addEventListener("mouseleave", () => {
+        button.classList.remove("touch-active");
+    });
+});
